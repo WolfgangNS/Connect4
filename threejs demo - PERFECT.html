@@ -1,0 +1,75 @@
+<!-- # https://chatgpt.com/c/69859d0d-3b41-440b-a593-622a50a654ed -->
+<!-- https://discourse.threejs.org/t/firefox-importmap-error-the-specifier-three-was-a-bare/48855/3 -->
+<!-- https://chatgpt.com/c/3f4c5162-ff47-4f64-8443-28b4a1436589 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body { margin: 0; }
+      canvas { display: block; height: 100vh; } /* Set height to 80% of the viewport height */
+    </style>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.0/dist/es-module-shims.js"></script>
+	
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
+    "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/controls/OrbitControls.js",
+    "RGBELoader": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/RGBELoader.js"
+  }
+}
+</script>
+<script type="module">
+  import * as THREE from 'three';
+  import { OrbitControls } from 'OrbitControls';
+  import { RGBELoader } from 'RGBELoader';
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight * 0.8, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer();
+
+  // Set renderer size to the width of the window and 80% of the window's height
+  renderer.setSize(window.innerWidth, window.innerHeight * 0.8);
+  document.body.appendChild(renderer.domElement);
+
+  const geometry = new THREE.BoxGeometry();
+  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+  const cube = new THREE.Mesh(geometry, material);
+  scene.add(cube);
+
+  const controls = new OrbitControls(camera, renderer.domElement);
+
+  camera.position.z = 5;
+
+  function animate() {
+    requestAnimationFrame(animate);
+    controls.update();
+    renderer.render(scene, camera);
+  }
+
+  animate();
+
+  // Handle window resize
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth / (window.innerHeight * 0.8);
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight * 0.8);
+  });
+
+  // Load HDRI background
+  const rgbeLoader = new RGBELoader();
+  rgbeLoader.load('https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/1k/venice_sunset_1k.hdr', function (texture) {
+    texture.mapping = THREE.EquirectangularReflectionMapping;
+    scene.background = texture;
+    scene.environment = texture;
+  });
+</script>
+
+
+
+  </head>
+  <body>
+
+
+  </body>
+</html>
