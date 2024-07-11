@@ -15,7 +15,8 @@
   "imports": {
     "three": "https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.module.js",
     "OrbitControls": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/controls/OrbitControls.js",
-    "RGBELoader": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/RGBELoader.js"
+    "RGBELoader": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/RGBELoader.js",
+      "GLTFLoader": "https://cdn.jsdelivr.net/npm/three@0.128.0/examples/jsm/loaders/GLTFLoader.js"
   }
 }
 </script>
@@ -23,6 +24,7 @@
   import * as THREE from 'three';
   import { OrbitControls } from 'OrbitControls';
   import { RGBELoader } from 'RGBELoader';
+    import { GLTFLoader } from 'GLTFLoader';
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight * 0.8, 0.1, 1000);
@@ -31,11 +33,6 @@
   // Set renderer size to the width of the window and 80% of the window's height
   renderer.setSize(window.innerWidth, window.innerHeight * 0.8);
   document.body.appendChild(renderer.domElement);
-
-  const geometry = new THREE.BoxGeometry();
-  const material = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
-  const cube = new THREE.Mesh(geometry, material);
-  scene.add(cube);
 
   const controls = new OrbitControls(camera, renderer.domElement);
 
@@ -63,6 +60,14 @@
     scene.background = texture;
     scene.environment = texture;
   });
+
+    // Load GLTF model
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.load('https://raw.githubusercontent.com/mrdoob/three.js/513ea1285a5f3712e0d582863473b27a8be84776/examples/models/gltf/DamagedHelmet/glTF/DamagedHelmet.gltf', function (gltf) {
+      scene.add(gltf.scene);
+    }, undefined, function (error) {
+      console.error('An error happened while loading the GLTF model:', error);
+    });
 </script>
 
 
