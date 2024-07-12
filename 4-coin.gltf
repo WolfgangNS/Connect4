@@ -15,7 +15,23 @@
 	"nodes":[
 		{
 			"mesh":0,
-			"name":"Circle"
+			"name":"path848",
+			"rotation":[
+				0.3826834559440613,
+				0,
+				0,
+				0.9238795638084412
+			],
+			"scale":[
+				1,
+				0.4999999701976776,
+				1
+			],
+			"translation":[
+				0,
+				-0.004393389448523521,
+				0.010606594383716583
+			]
 		}
 	],
 	"materials":[
@@ -25,17 +41,17 @@
 			"pbrMetallicRoughness":{
 				"baseColorFactor":[
 					1,
-					0.13980036973953247,
-					0.13980036973953247,
+					0.15698421001434326,
+					0.20628482103347778,
 					1
 				],
-				"roughnessFactor":0.1363636553287506
+				"roughnessFactor":0.1409091055393219
 			}
 		}
 	],
 	"meshes":[
 		{
-			"name":"Circle",
+			"name":"path848",
 			"primitives":[
 				{
 					"attributes":{
@@ -53,15 +69,15 @@
 		{
 			"bufferView":0,
 			"componentType":5126,
-			"count":3923,
+			"count":2814,
 			"max":[
-				0.5,
-				0.005000002216547728,
+				0.5000000596046448,
+				0.035189189016819,
 				0.5
 			],
 			"min":[
-				-0.5,
-				-0.029999999329447746,
+				-0.5000000596046448,
+				-0.03518945723772049,
 				-0.5
 			],
 			"type":"VEC3"
@@ -69,51 +85,51 @@
 		{
 			"bufferView":1,
 			"componentType":5126,
-			"count":3923,
+			"count":2814,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":2,
 			"componentType":5126,
-			"count":3923,
+			"count":2814,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":3,
 			"componentType":5123,
-			"count":11652,
+			"count":7008,
 			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
 		{
 			"buffer":0,
-			"byteLength":47076,
+			"byteLength":33768,
 			"byteOffset":0,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":47076,
-			"byteOffset":47076,
+			"byteLength":33768,
+			"byteOffset":33768,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":31384,
-			"byteOffset":94152,
+			"byteLength":22512,
+			"byteOffset":67536,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":23304,
-			"byteOffset":125536,
+			"byteLength":14016,
+			"byteOffset":90048,
 			"target":34963
 		}
 	],
 	"buffers":[
 		{
-			"byteLength":148840,
+			"byteLength":104064,
 			"uri":"4-coin.bin"
 		}
 	]
